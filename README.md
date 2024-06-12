@@ -43,7 +43,7 @@ Clone the project
 Install reqirements
 
 ```
-pip install reqirements.txt
+	pip install reqirements.txt
 ```
 
 
