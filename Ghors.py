@@ -323,3 +323,50 @@ please input work type : """
                 clear()
                 print(Fore.YELLOW + "The Type of the Doctor code must be integer !!!")
         itSave = False
+
+    def delete(self):
+        clear()
+        data = super().read()
+        itSaved = False
+
+        while itSaved == False:
+            Doctor_Code = input("please input Doctor Code : ")
+            if not exit_flag(Doctor_Code, "Doctors") and numric_flag(Doctor_Code):
+                clear()
+                delete_flag = False
+                while delete_flag == False:
+                    print("Doctor code : " + Doctor_Code)
+                    print("First Name : " + data["Doctors"][Doctor_Code]["First Name"])
+                    print("Last Name : " + data["Doctors"][Doctor_Code]["Last Name"])
+                    print(
+                        "Phone Number : "
+                        + data["Doctors"][Doctor_Code]["Doctor Number"]
+                    )
+                    print("Work Type : " + data["Doctors"][Doctor_Code]["Work Type"])
+                    delete_choose = input(
+                        "\n Are you sure to deleting Docotor Data (y/n)?"
+                    )
+                    if delete_choose == "y":
+                        clear()
+                        del data["Doctors"][Doctor_Code]
+
+                        print(Fore.GREEN + Doctor_Code + " delete success")
+
+                        for National_Code in data["Patients"]:
+                            if (
+                                Doctor_Code
+                                in data["Patients"][National_Code]["Doctor Code"]
+                            ):
+                                data["Patients"][National_Code]["Doctor Code"].remove(
+                                    Doctor_Code
+                                )
+                        super().write(data)
+                        delete_flag = True
+                        itSaved = True
+                    elif delete_choose == "n":
+                        print("deleting Doctor Code Has been canceled !!!")
+                        break
+                    else:
+                        print("please try again to choose !")
+            elif exit_flag(Doctor_Code):
+                print("this Doctor Code Not exit ! ")

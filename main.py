@@ -91,14 +91,17 @@ def DoctorMenu():
 6. show doctors by cert
 0. back to main
 
-please select a number : 
-              """
+please select a number : """
         choose = input(DoctorText)
 
         match (choose):
             case "1":
                 clear()
                 doctor.create()
+
+            case "2":
+                clear()
+                doctor.delete()
 
 
 menu()
