@@ -37,13 +37,13 @@
 Clone the project
 
 ```bash
- git clone https://github.com/s7net/GHORS && cd GHORS
+git clone https://github.com/s7net/GHORS && cd GHORS
 ```
 
 Install reqirements
 
 ```
-	pip install reqirements.txt
+pip install reqirements.txt
 ```
 
 
@@ -51,7 +51,7 @@ Install reqirements
 Running
 
 ```bash
-  python3 main.py
+python3 main.py
 ```
 
 ## Screenshots
