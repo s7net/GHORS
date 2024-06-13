@@ -14,7 +14,7 @@ def menu():
     ':::'__   _____ _____  /    /
         / /\ /     |:::::\ \   /
         \/_/ \_____|:::::/  `"`
-
+        
     1. Patients
     2. Doctors 
     e. Exit
@@ -95,13 +95,40 @@ please select a number : """
         choose = input(DoctorText)
 
         match (choose):
-            case "1":
+            case "1":  # create a docotor
                 clear()
                 doctor.create()
 
-            case "2":
+            case "2":  # delete a doctor
                 clear()
                 doctor.delete()
+
+            case "3":  # edit a doctor info
+                clear()
+                doctor.edit()
+
+            case "4":  # seach doctor info by doctor code
+                clear()
+                doctor.search_doctor()
+                goto_menu()
+
+            case "5":
+                clear()  # view all doctors
+                doctor.view_all_doctors()
+                goto_menu()
+
+            case "6":
+                clear()  # view add doctors by type
+                doctor.view_all_doctors_by_type()
+                goto_menu()
+
+            case "0":
+                menu()
+
+            case "e":
+                clear()
+                bye()
+                exit()
 
 
 menu()
