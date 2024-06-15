@@ -5,7 +5,7 @@ from colorama import Fore, Style, init  # type: ignore
 # test commit
 FM = File()
 clear = lambda: os.system("cls")
-len_Flag = lambda x: True if len(x) == 10 else False
+len_Flag = lambda x: len(x) == 10
 space_flag = lambda x, Type="Patients": x not in FM.read()[Type]
 numric_flag = lambda x: x.isnumeric()
 bye = lambda: print("Bye Baby !")
@@ -276,7 +276,7 @@ class Patient(File):
         data = super().read()
 
         patient_dict = {}
-        patient_exit = True if data["Patients"] != False else False
+        patient_exit = data["Patients"] != False
         for National_Code in data["Patients"]:
             Doctor_id_str = ""
             for Id in data["Patients"][National_Code]["Doctor Code"]:
