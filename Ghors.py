@@ -159,14 +159,13 @@ class Patient(File):
                             + "The patient was successfully deleted ."
                         )
                         break
-                    else:
-                        clear()
-                        print(
-                            Style.BRIGHT
-                            + Fore.GREEN
-                            + "The patient was canceled deleting ."
-                        )
-                        break
+                    clear()
+                    print(
+                        Style.BRIGHT
+                        + Fore.GREEN
+                        + "The patient was canceled deleting ."
+                    )
+                    break
             elif space_flag(National_Code):
                 clear()
                 print(Fore.YELLOW + "This national code not exists !!!")
