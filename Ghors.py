@@ -2,7 +2,6 @@ from Manager import File
 import os
 from colorama import Fore, Style, init  # type: ignore
 
-# test commit
 FM = File()
 clear = lambda: os.system("cls")
 len_Flag = lambda x: True if len(x) == 10 else False
@@ -12,7 +11,7 @@ bye = lambda: print("Bye Baby !")
 
 
 def goto_menu():
-    choose = input("\nPress any key for menu, 0 to exit. ... ")
+    choose = input("\nPress any key for menu, 0 to exit ... ")
     if choose != "0":
         clear()
     else:
@@ -89,13 +88,15 @@ class Patient(File):
                         itDoctor = True
                     elif not dr_numeric_flag(Doctor_Code):
                         # clear()
-                        print(Fore.YELLOW + "Doctor code must be a numeric value !!!")
+                        print(
+                            Fore.YELLOW + "❗️ Doctor code must be a numeric value !!!"
+                        )
 
                     elif not AvDoctor(Doctor_Code):
                         clear()
                         print(
                             Fore.YELLOW
-                            + "This code of doctor / doctors is not available in the database !!!"
+                            + "❗️ This code of doctor / doctors is not available in the database !!!"
                         )
 
                 data["Patients"][National_Code] = {
@@ -111,16 +112,17 @@ class Patient(File):
                 print(
                     Style.BRIGHT + Fore.GREEN + "The patient was successfully created ."
                 )
-            elif not len_Flag(National_Code):
-                clear()
-                print(
-                    Fore.YELLOW
-                    + "The length of the national code must be ten characters !!!"
-                )
+
             elif not numric_flag(National_Code):
                 clear()
                 print(Fore.YELLOW + "The Type of the national code must be numric !!!")
 
+            elif not len_Flag(National_Code):
+                clear()
+                print(
+                    Fore.YELLOW
+                    + "The length of the national code must be 10 characters !!!"
+                )
             elif not space_flag(National_Code):
                 clear()
                 print(Fore.YELLOW + "This national code duplicate !!!")
@@ -310,6 +312,9 @@ class Patient(File):
 class Doctors(File):
     def __init__(self, Path="database.json"):
         super().__init__(Path=Path)
+
+    def __str__(self):
+        return "This file helps you manage patient information"
 
     def create(self):
         clear()

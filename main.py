@@ -1,6 +1,10 @@
 from Ghors import *
 
 
+def amir():
+    print("hi i am amir")
+
+
 # test commit
 def menu():
     while True:

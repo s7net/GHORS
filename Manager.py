@@ -11,7 +11,7 @@ class File:
         with open(fileName, "w") as f:
             f.write(json.dumps(content)) if jsonEncode == True else f.write(content)
         return f"{fileName} is created !"
-    
+
     def read(self):
         with open(self.Path, "r") as f:
             return json.loads(f.read())
