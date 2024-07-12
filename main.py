@@ -1,24 +1,25 @@
 from Ghors import *
 
 
+# test commit
 def menu():
     while True:
         clear()
         menuText = """ 
     .-.    __
     |   |  /\ \\     ~ GHORS
-    |   |  \_\/      __        .-.
+    |   |  \_\/      __        .-. 
     |___|        __ /\ \      /:::\\
     |:::|       / /\_\/      /::::/
     |:::|       \/_/        / `-:/
     ':::'__   _____ _____  /    /
         / /\ /     |:::::\ \   /
-        \/_/ \_____|:::::/  `"`
-        
+        \/_/ \_____|:::::/  `""
+
     1. Patients
-    2. Doctors 
+    2. Doctors
     e. Exit
-        
+
     Please Select Number : """
         choose = input(menuText)
 
@@ -78,20 +79,24 @@ def PatientMenu():
                 bye()
                 exit()
 
+            case _:
+                clear()
+                print("        not matched")
+
 
 def DoctorMenu():
     doctor = Doctors()
     while True:
         DoctorText = """
-1. create a new doctor
-2. delete a doctor
-3. edit a doctor 
-4. search a doctor
-5. view all doctors
-6. show doctors by cert
-0. back to main
+        1. create a new doctor
+        2. delete a doctor
+        3. edit a doctor 
+        4. search a doctor
+        5. view all doctors
+        6. show doctors by cert
+        0. back to main
 
-please select a number : """
+        please select a number : """
         choose = input(DoctorText)
 
         match (choose):
@@ -129,6 +134,10 @@ please select a number : """
                 clear()
                 bye()
                 exit()
+
+            case _:
+                clear()
+                print("         not matched")
 
 
 menu()
