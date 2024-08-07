@@ -1,5 +1,9 @@
-from GHORS import *
+from GHORS import patient, clear
+from os.path import isfile
+from Manger import file
+import json
 
+file.copy_database()
 
 def main_menu():
     clear()
@@ -37,6 +41,7 @@ def main_menu():
 
 def patients_menu():
     clear()
+    GHORS = patient()
     patients_menu_text = """
     1. create new patient
     2. delete a patient
@@ -51,7 +56,7 @@ def patients_menu():
     choose = input(patients_menu_text)
     match (choose):
         case "1":
-            pass
+            GHORS.create()
 
         case "2":
             pass
